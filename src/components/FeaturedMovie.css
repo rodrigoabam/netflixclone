@@ -1,0 +1,78 @@
+.featured {
+  height: 100vh;
+}
+
+.featuredVert {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, #111 10%, transparent 90%);
+}
+
+.featuredHorz {
+  width: inherit;
+  height: inherit;
+  padding: 8rem 0 16rem 3rem;
+  background: linear-gradient(to right, #111 30%, transparent 70%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featuredName {
+  font: 700 6rem/1 'Nunito', sans-serif;
+}
+
+.featuredInfo {
+  margin-top: 1.6rem;
+
+  font: 700 1.8rem/1.2 'Nunito', sans-serif;
+}
+
+.featuredInfo p:first-child {
+  color: #46d369;
+}
+
+.featuredInfo p {
+  margin-right: 1.6rem;
+
+  display: inline-block;
+}
+
+.featuredInfo .featuredDescription {
+  max-width: 40%;
+  
+  color: #999;
+  font-size: 2rem;
+}
+
+.featuredInfo p:last-child {
+  font-size: 1.6rem;
+  color: #999;
+}
+
+.featuredButtons {
+  margin-top: 1.8rem;
+}
+
+.featuredButtons a {
+  padding: 1.6rem 2.8rem;
+  display: inline-block;
+  font: 700 2rem/1.4 'Nunito', sans-serif;
+  border-radius: .4rem;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  opacity: 1;
+  transition: all ease 200ms;
+}
+
+.featuredButtons a + a {
+  margin-left: 1.4rem;
+  background: #333;
+  color: #fff;
+}
+
+.featuredButtons a:hover {
+  opacity: 0.7;
+}
