@@ -10,6 +10,6 @@ Nesse [link](https://github.com/provicapital/jobs/blob/master/frontend/challenge
 
 ## Etapas do desafio
 - [x] Importar uma API que contenha dados de diversos filmes para utilzar dentro da aplicação;
-- [ ] Clonar a pagina inicial do Netflix;
+- [x] Clonar a pagina inicial do Netflix;
 - [ ] Desenvolver o layout da pagina com nova funcionalidade utilizando Adobe XD.
 - [ ] Aplicar ideia para dentro do projeto;
