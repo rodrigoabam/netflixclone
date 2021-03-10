@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Tmdb from './Tmdb.jsx'
-import MovieRow from './components/MovieRow.jsx'
-import FeaturedMovie from './components/FeaturedMovie.jsx'
+import MovieRow from './components/MovieRow'
+import FeaturedMovie from './components/FeaturedMovie'
+import Header from './components/Header'
 
 export default () => {
 
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(()=>{
     const loadAll = async () => {
@@ -24,8 +26,24 @@ export default () => {
     loadAll()
   },[])
 
+  useEffect(() => {
+    const scrollListener = () => {
+
+      window.scrollY > 20 ? setBlackHeader(true) : setBlackHeader(false)
+      
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, []);
+
   return (
     <div className="pageHome">
+
+      <Header black={blackHeader} />
 
       {featuredData && 
         <FeaturedMovie item={featuredData} />
@@ -37,6 +55,17 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
+
+      <footer>
+        <p>Direitos de imagem para Netflix</p>
+        <p>Dados pegos da API do Tmdb</p>
+      </footer>
+
+      {movieList.length <= 0 &&
+      <div className="loading">
+        <img src="https://media1.tenor.com/images/f6b11bd53411d94338117381cf9a9b9b/tenor.gif?itemid=18131525" alt="Carregando"/>
+      </div>
+      }
     </div>
   )
 }

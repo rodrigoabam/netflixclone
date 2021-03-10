@@ -9,6 +9,11 @@ export default ({ item }) => {
     genres.push(item.genres[i].name)
   }
 
+  let description = item.overview
+  if(description.length > 200) {
+    description = description.substring(0, 200)+'...';
+  }
+
   return (
     <section className="featured" style={{
       backgroundSize: 'cover',
@@ -23,7 +28,7 @@ export default ({ item }) => {
             <p>{firstDate.getFullYear()}</p>
             <p>{item.number_of_seasons} temporada{item.number_of_seasons != 1 ? 's' : ''} </p>
             <div className="featuredDescription">
-              {item.overview}
+              {description}
             </div>
             <div className="featuredButtons">
               <a href={`/watch/${item.id}`}>► Assistir</a>
